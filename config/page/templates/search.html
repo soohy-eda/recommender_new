@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if not songs %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+        {% for song in songs.all %}
+        <div class="container">
+            <div class="card">
+                <h5 class="card-header">{{ song.title }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ song.artist }}</h5>
+                <p class="card-text">{{ song.genre }}</p>
+                <a href="{% url 'detail' song.id %}" class="btn btn-primary">상세정보</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

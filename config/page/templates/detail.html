@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상세정보</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+    {% block content %}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h2>{{ song.title }}</h2></li>
+            <li class="list-group-item">앨범:  {{ song.album }}</li>
+            <li class="list-group-item">가수:  {{ song.artist }}</li>
+            <li class="list-group-item">장르:  {{ song.genre }}</li>
+            <li class="list-group-item">출시일:  {{ song.dates }}</li>
+            <li class="list-group-item">가사:  {{ song.lyrics }}</li>
+        </ul>
+    {% endblock %}
+</body>
+</html>

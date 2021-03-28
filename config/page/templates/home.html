@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+{% if request.session.user %}
+<div class="row mt-5">
+  <div class="col-12 text-center">
+    <h1>
+      로그인 성공 home
+    </h1>
+  </div>
+</div>
+</div>
+{% else %}
+<div class="row mt-5">
+  <div class="col-12 text-center">
+    <h1>
+      로그인 이전 home
+    </h1>
+  </div>
+</div>
+</div>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-12 text-center">
+      <h1>로그인</h1>
+    </div>
+
+    <div class="col-12 text-center">
+       <form method="POST" action=".">
+           {% csrf_token %}
+           {% for field in loginform %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <input
+          type="{{ field.field.widget.input_type }}"
+          class="form-control"
+          id="{{ field.id_for_label }}"
+          placeholder="{{ field.label }}"
+          name="{{ field.name }}"
+        />
+      </div>
+      {% if field.errors %}
+      <span style="color: red;">{{ field.errors }}</span>
+      {% endif %}
+      {% endfor %}
+           <a href="{% url 'register' %}" class="btn btn-primary">회원가입</a>
+          <button type="submit" class="btn btn-primary">완료</button>
+        </form>
+    </div>
+  </div>
+{% endblock %}
