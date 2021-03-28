@@ -6,8 +6,15 @@
 </head>
 <body>
 {% extends 'base.html' %}
-
     {% block content %}
+    <div class=row>
+        <form class="form-inline" action="{% url 'search' %}" method="post" style="text-align: center; margin: 0auto; margin-top: 10px">
+            <div class=col>
+                <input class="form-control-lg" type="search" placeholder="가수나 제목" aria-label="Search" name="q" value="{{q}}">
+                <button class="btn btn-primary" type="submit">검색</button>
+            </div>
+        </form>
+
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><h2>{{ song.title }}</h2></li>
             <li class="list-group-item">앨범:  {{ song.album }}</li>
@@ -16,6 +23,7 @@
             <li class="list-group-item">출시일:  {{ song.dates }}</li>
             <li class="list-group-item">가사:  {{ song.lyrics }}</li>
         </ul>
+        </div>
     {% endblock %}
 </body>
 </html>

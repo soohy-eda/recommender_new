@@ -5,4 +5,5 @@ urlpatterns = [
     path('favorite/', views.favorite, name='favorite'),
     path('search/', views.search, name='search'),
     path('detail/<int:song_id>', views.detail, name='detail'),
+    path('recommend/', views.recommend, name='recommend'),
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from member.models import Member
 
 def home(request):
     return render(request, 'home.html')
@@ -13,7 +14,7 @@ def search(request):
     q = request.POST.get('q', "")
 
     if q:
-        songs = songs.filter(title__icontains=q)|songs.filter(genre__icontains=q)|songs.filter(artist__icontains=q)
+        songs = songs.filter(title__icontains=q) and songs.filter(artist__icontains=q)
         return render(request, 'search.html', {'songs':songs, 'q':q})
 
     else:
@@ -25,3 +26,6 @@ def favorite(request):
 
     genres = ["발라드", "댄스", "R&B/Soul", "트로트", "록/메탈", "OST", "인디", "포크/블루스", "EDM", "랩/힙합"]
     return render(request, 'favorite.html', {'genres': genres})
+
+def recommend(request):
+    return render(request, 'recommend.html')
