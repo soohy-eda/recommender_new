@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'songforu',
         'USER': 'root',
         'PASSWORD': 'suhyeong',
-        'HOST': 'Localhost',
+        'HOST': 'tngud1103.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
