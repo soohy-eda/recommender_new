@@ -18,7 +18,6 @@ class LoginForm(forms.Form):
         password = cleaned_data.get('password')
 
         if username and password:
-
             try:
                 member = Member.objects.get(username=username)
             except Member.DoesNotExist:

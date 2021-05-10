@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-12 text-center">
+    <div class="col-12">
        <form method="POST" action=".">
            {% csrf_token %}
           <div class="form-group">
@@ -44,7 +44,33 @@
                 name="re_password"
               />
           </div>
-          <button type="submit" class="btn btn-primary">등록</button>
+          <div class="row">
+              <div class="form-group">
+                <label for="pregenre1">선호장르1</label>
+                <select class="form-control" id="pregenre1" name="pregenre1">
+                    {% for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pregenre2">선호장르2</label>
+                <select class="form-control" id="pregenre2" name="pregenre2">
+                    {% for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pregenre3">선호장르3</label>
+                <select class="form-control" id="pregenre3" name="pregenre3">
+                    {% for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+           </div>
+          <button type="submit" value="Select" class="btn btn-primary">등록</button>
         </form>
     </div>
 </div>

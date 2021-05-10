@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>favorite</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ member.username }}님의 선호장르</h1>
+<br>
+<form method="POST" action=".">
+    {% csrf_token %}
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <h4>1. {{ member.pregenre1 }}</h4>
+        <div class="form-group">
+            <label for="pregenre1"></label>
+            <select class="form-control" id="pregenre1" name="pregenre1">
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <h4>2. {{ member.pregenre2 }}</h4>
+        <div class="form-group">
+            <label for="pregenre2"></label>
+            <select class="form-control" id="pregenre2" name="pregenre2">
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <h4>3. {{ member.pregenre3 }}</h4>
+        <div class="form-group">
+            <label for="pregenre3"></label>
+            <select class="form-control" id="pregenre3" name="pregenre3">
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </li>
+</ul>
+<button type="submit" value="Select" class="btn btn-primary btn-lg">수정하기</button>
+</form>
+    {% endblock %}
+</body>
+</html>

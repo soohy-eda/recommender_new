@@ -1,0 +1,32 @@
+<head>
+    <meta charset="UTF-8">
+    <title>SongForYou</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+ <form class="form-inline" action="{% url 'search' %}" method="post" style="text-align: center; margin: 0auto; margin-top: 100px">
+     {% csrf_token %}
+    <div class=col>
+        <input class="form-control-lg" type="search" placeholder="가수나 제목" aria-label="Search" name="q" value="{{q}}">
+        <button class="btn btn-primary" type="submit">검색</button>
+    </div>
+ </form>
+{% if request.session.user %}
+<p class="text-success" style="text-align: center; margin: 0auto;margin-top: 70px">{{ member.username }}접속 중...</p>
+{% else %}
+<p class="text-success" style="text-align: center; margin: 0auto;margin-top: 70px">버튼을 눌러 검색해보자</p>
+{% endif %}
+<div class="col-12 text-center" style="margin-top: 10px">
+    <a href="{% url 'recommend' %}" class="btn btn-primary btn-lg btn-block">추천페이지</a>
+    <br>
+    <div class="row text-center">
+        <a href = "{% url 'tag' tagname=1 %}" class="btn btn-secondary" style="margin-left: 350px; margin-right: 30px">사랑</a>
+        <a href = "{% url 'tag' tagname=2 %}" class="btn btn-secondary" style="margin-right: 30px">이별</a>
+        <a href = "{% url 'tag' tagname=3 %}" class="btn btn-secondary" style="margin-right: 30px">자신감</a>
+        <a href = "{% url 'tag' tagname=4 %}" class="btn btn-secondary" style="margin-right: 30px">가족</a>
+        <a href = "{% url 'tag' tagname=5 %}" class="btn btn-secondary" style="margin-right: 30px">위로</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -6,6 +6,7 @@ class Member(models.Model):
     password = models.CharField(max_length=100, verbose_name='사용자PW')
     pregenre1 = models.CharField(max_length=45, verbose_name='선호장르1')
     pregenre2 = models.CharField(max_length=45, verbose_name='선호장르2')
+    pregenre3 = models.CharField(max_length=45, verbose_name='선호장르3')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='가입날짜')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='마지막수정일')
     song = models.ManyToManyField(Song, blank=True)

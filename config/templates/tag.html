@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if tagname == 1 %}
+<span class="badge badge-primary">사랑</span><br>
+{% elif tagname == 2 %}
+<span class="badge badge-primary">이별</span><br>
+{% elif tagname == 3 %}
+<span class="badge badge-primary">자신감</span><br>
+{% elif tagname == 4 %}
+<span class="badge badge-primary">가족</span><br>
+{% else %}
+<span class="badge badge-primary">위로</span><br>
+{% endif %}
+<form method="POST" action=".">
+    {% csrf_token %}
+    <table class="table-light" border="1" width="1100px">
+        <th>제목</th>
+        <th>가수</th>
+        <th>정보</th>
+        {% for song in songs.all %}
+        <tr>
+            <td>{{song.title}}</td>
+            <td>{{song.artist}}</td>
+            <td><a href="{% url 'detail' song.id %}" class="btn btn-primary">더보기</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}
