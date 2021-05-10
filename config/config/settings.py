@@ -26,7 +26,7 @@ SECRET_KEY = 'qrm(g5o@jufet*=+qaph80&^jkw$(n^pg4r7mx#fa=u7dn@#!7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".pythonanywhere.com"]
 
 
 # Application definition
